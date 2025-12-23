@@ -52,6 +52,8 @@ def handle_objectchange_save(sender, instance, **kwargs):
                 }
                 if netbox_supports_change_comment:
                     change_obj['comment'] = instance.message
+
+        logger.info(json.dumps(change_obj))
     else: # 'text' or any invalid
         comment = ''
         if netbox_supports_change_comment:
